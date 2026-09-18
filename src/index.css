@@ -1,21 +1,76 @@
+@import "tailwindcss";
+
+/* ─── Design tokens ─────────────────────────────────────────────────────────── */
 :root {
+  /* Fasting states */
+  --color-fed:      theme(colors.amber.400);
+  --color-early:    theme(colors.sky.400);
+  --color-ketosis:  theme(colors.violet.500);
+  --color-deep:     theme(colors.purple.700);
+
+  /* Modes */
+  --color-fasting:  theme(colors.blue.600);
+  --color-eating:   theme(colors.green.500);
+
+  /* Streak tiles */
+  --color-streak-0: theme(colors.gray.200);
+  --color-streak-1: theme(colors.green.200);
+  --color-streak-2: theme(colors.green.400);
+  --color-streak-3: theme(colors.green.700);
+
+  /* Water */
+  --color-water:    theme(colors.sky.400);
+
+  /* Warning / prompt */
+  --color-warn:     theme(colors.amber.400);
+
+  /* Typography */
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Dark mode token overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-streak-0: theme(colors.gray.700);
+  }
+}
+
+/* ─── Base resets ────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  /* Safe-area padding for iOS notch / home indicator */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+body {
+  margin: 0;
+  background-color: theme(colors.slate.950);
+  color: theme(colors.slate.50);
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: theme(colors.slate.50);
+    color: theme(colors.slate.900);
+  }
+}
+
+/* ─── Utility: minimum tap target ───────────────────────────────────────────── */
+.tap-target {
+  min-height: 48px;
+  min-width: 48px;
 }
