@@ -11,13 +11,27 @@
   <meta name="theme-color" content="#2563eb" />
   <meta name="description" content="Your personal fasting, activity and weight-loss companion." />
 
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="/intermittent-fasting-app/vite.svg" />
+  <link rel="apple-touch-icon" href="/intermittent-fasting-app/apple-touch-icon.png" />
 
   <title>Fast Track</title>
-  <script type="module" crossorigin src="/assets/index-GiKjqZjb.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-OXgX7qOr.css">
-<link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+  <script>
+    // GitHub Pages SPA redirect decoder — restores the real URL that 404.html
+    // encoded into a query string, so the client-side router sees the right path.
+    (function () {
+      var l = window.location
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function (s) {
+          return s.replace(/~and~/g, '&')
+        }).join('?')
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash)
+      }
+    })()
+  </script>
+  <script type="module" crossorigin src="/intermittent-fasting-app/assets/index-Bc7I4gFz.js"></script>
+  <link rel="stylesheet" crossorigin href="/intermittent-fasting-app/assets/index-DVHrg9u8.css">
+<link rel="manifest" href="/intermittent-fasting-app/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/intermittent-fasting-app/registerSW.js"></script></head>
 
 <body>
   <div id="root"></div>
