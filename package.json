@@ -2,7 +2,7 @@
   "name": "intermittent-fasting-app",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://refilwe-m-mashile.github.io/intermittent-fasting-app",
+  "homepage": "https://refilwe.dev/intermittent-fasting-app",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",

@@ -3,13 +3,17 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
+// Deployed to GitHub Pages (custom domain) at refilwe.dev/intermittent-fasting-app/
+const BASE = '/intermittent-fasting-app/'
+
 export default defineConfig({
+  base: BASE,
   plugins: [
     react(),
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'icons/*.png'],
+      includeAssets: ['vite.svg', 'apple-touch-icon.png', 'icons/*.png'],
       manifest: {
         name: 'Fast Track',
         short_name: 'FastTrack',
@@ -17,8 +21,8 @@ export default defineConfig({
         theme_color: '#2563eb',
         background_color: '#0f172a',
         display: 'standalone',
-        scope: '/',
-        start_url: '/',
+        scope: BASE,
+        start_url: BASE,
         icons: [
           {
             src: 'icons/icon-192.png',
@@ -36,8 +40,8 @@ export default defineConfig({
       workbox: {
         runtimeCaching: [
           {
-            // Cache the main app shell routes
-            urlPattern: /^\/(dashboard|fast|activity|streaks|water|weight|profile)?$/,
+            // Cache the main app shell routes (under the deploy base path)
+            urlPattern: /\/intermittent-fasting-app\/(dashboard|fast|activity|streaks|water|weight|profile)?$/,
             handler: 'NetworkFirst',
             options: {
               cacheName: 'app-shell',
